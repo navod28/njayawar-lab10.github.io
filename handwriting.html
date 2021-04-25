@@ -83,7 +83,7 @@
         function sketchpad_mouseMove(e) {
             // Update the mouse co-ordinates when moved
             getMousePos(e);
-
+            predict();
             // Draw a dot if the mouse button is currently being pressed
             if (mouseDown == 1) {
                 drawLine(ctx, mouseX, mouseY, 12);
@@ -111,7 +111,7 @@
             getTouchPos();
 
             drawLine(ctx, touchX, touchY, 12);
-
+            predict();
             // Prevents an additional mousedown event being triggered
             event.preventDefault();
         }
