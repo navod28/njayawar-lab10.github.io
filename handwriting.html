@@ -83,10 +83,11 @@
         function sketchpad_mouseMove(e) {
             // Update the mouse co-ordinates when moved
             getMousePos(e);
-            predict();
+            
             // Draw a dot if the mouse button is currently being pressed
             if (mouseDown == 1) {
                 drawLine(ctx, mouseX, mouseY, 12);
+                predict();
             }
         }
 
@@ -111,7 +112,7 @@
             getTouchPos();
 
             drawLine(ctx, touchX, touchY, 12);
-            predict();
+
             // Prevents an additional mousedown event being triggered
             event.preventDefault();
         }
@@ -129,7 +130,7 @@
 
             // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
             drawLine(ctx, touchX, touchY, 12);
-            predict();
+
             // Prevent a scrolling action as a result of this touchmove triggering.
             event.preventDefault();
         }
